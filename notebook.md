@@ -26,27 +26,27 @@
 
 | Term | Definition and Description | Base Structure | Real Life Example | App Example |
 |------|----------------------------|----------------|-------------------|-------------|
-|   main()   | A function that runs when your app starts. It tells Flutter what app to show. | `void main() => runApp(MyApp());` |  |  |
-|  MaterialApp    | The widget that sets up your whole app’s look and navigation. | `MaterialApp(...)` |  |  |
-|    Scaffold  | A widget that gives you the basic layout: background, navigation bar, floating button, etc. | `Scaffold(...)` |  |  |
-|  Column    | A widget that holds and displays your content in a straight line from top to bottom. | `Column(...)` |  |  |
-|   Row   | A widget that shows things side-by-side. | `Row(...)` |  |  |
-|   Container   | A box that holds other widgets. You can add color, padding, borders, or size. | `Container(...)` |  |  |
-|   Text   | A widget to display text on the screen. | `Text('Hello')` |  |  |
-|   Image.network   | A widget to show an image using a link from the internet. | `Image.network('https://...')` |  |  |
-|   ElevatedButton   | A clickable button that floats above content. You choose what happens when it's clicked. | `ElevatedButton(onPressed: ..., child: ...)` |  |  |
-|   onPressed   | The code that gets run when a button is tapped or something happens. | `onPressed: () => doSomething()` |  |  |
-|  StatelessWidget    | A class that creates widgets that never change. Good for static screens. | `class HomeScreen extends StatelessWidget` |  |  |
-|   Navigator   | A class for widgets that can change while the app is running. | `class MyWidget extends StatefulWidget` |  |  |
-|   @override   | Lets you move from one screen to another using route names. | `Navigator.pushNamed(context, '/about')` |  |  |
-|   build()   | Makes space around a widget inside its container. | `Padding(padding: EdgeInsets.all(8.0), child: ...)` |  |  |
-|  BuldContext    | Aligns content in the center of the screen or container. | `Center(child: ...)` |  |  |
-|   super.key   | Automatically puts widgets onto a new line when there's no space. | `Wrap(children: [...])` |  |  |
-|   const   | This marks a method as one that’s replacing a method in a parent class. | `@override` |  |  |
-|      | The special function in every widget that describes what gets drawn on the screen. | `Widget build(BuildContext context) {...}` |  |  |
-|      | Required in every widget class to describe what to show. | `build` |  |  |
-|      | A variable that helps the widget know where it is and lets it communicate with the app. | `BuildContext context` |  |  |
-|      | A keyword used to pass a value to the parent widget. | `super.key` |  |  |
+|   main()   | A function that runs when your app starts. It tells Flutter what app to show. | `void main() => runApp(MyApp());` |  | void main() => runApp(MyPortfolioApp()); |
+|  MaterialApp    | The widget that sets up your whole app’s look and navigation. | `MaterialApp(...)` |  |  return MaterialApp( debugShowCheckedModeBanner: false, |
+|    Scaffold  | A widget that gives you the basic layout: background, navigation bar, floating button, etc. | `Scaffold(...)` |  |   return Scaffold( body: Center( |
+|  Column    | A widget that holds and displays your content in a straight line from top to bottom. | `Column(...)` |  | child: Column(   children: [        Text( |
+|   Row   | A widget that shows things side-by-side. | `Row(...)` |  | child: Row(  children: [  |
+|   Container   | A box that holds other widgets. You can add color, padding, borders, or size. | `Container(...)` |  | return Container( width: 160, |
+|   Text   | A widget to display text on the screen. | `Text('Hello')` |  |children: [  Text(   title,  |
+|   Image.network   | A widget to show an image using a link from the internet. | `Image.network('https://...')` |  | child: Image.network(imageUrl, width: 100, height: 100, fit: BoxFit.cover) |
+|   ElevatedButton   | A clickable button that floats above content. You choose what happens when it's clicked. | `ElevatedButton(onPressed: ..., child: ...)` |  |  ),ElevatedButton(   onPressed: () |
+|   onPressed   | The code that gets run when a button is tapped or something happens. | `onPressed: () => doSomething()` |  |  onPressed: () => Navigator.pushNamed |
+|  StatelessWidget    | A class that creates widgets that never change. Good for static screens. | `class HomeScreen extends StatelessWidget` |  | class InfoCard extends StatelessWidget { |
+|   Stateful Widget   | A class for widgets that can change while the app is running. | `class MyWidget extends StatefulWidget` |  |  |
+|  Navigator    | Lets you move from one screen to another using route names. | `Navigator.pushNamed(context, '/about')` |  | onPressed: () => Navigator.pushNamed(context, |
+|   padding   | Makes space around a widget inside its container. | `Padding(padding: EdgeInsets.all(8.0), child: ...)` |  |    padding: const EdgeInsets.all(12), |
+|   Center   | Aligns content in the center of the screen or container. | `Center(child: ...)` |  | return Scaffold(body: Center( |
+|  wrap  | Automatically puts widgets onto a new line when there's no space. | `Wrap(children: [...])` |  | Wrap(alignment: WrapAlignment.center, children: puppyUrls.map((url) => puppyImage(url)).toList()), |
+|  @override    | This marks a method as one that’s replacing a method in a parent class. | `@override` |  | @overrideWidget build(BuildContext context) { |
+|   build()   | The special function in every widget that describes what gets drawn on the screen. | `Widget build(BuildContext context) {...}` |  | @override Widget build(BuildContext context) { |
+|  BuildContext    | Required in every widget class to describe what to show. | `build` |  | Widget build(BuildContext context) { |
+|   superkey   | A variable that helps the widget know where it is and lets it communicate with the app. | `BuildContext context` |  |  |
+|   const   | A keyword used to pass a value to the parent widget. | `super.key` |  |  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16), |
 |      | A keyword that means the value won't change and is set once. | `const` |  |  |
 
 
@@ -56,10 +56,10 @@
 
 | Term | Definition | Base Structure / Syntax | Real Life Example | App Example |
 |------|------------|--------------------------|-------------------|-------------|
-| Variable | A named container used to store a value that may change. | `var x = 5;` | score | Age |
-| Constant | A fixed value that cannot change once set. | `const PI = 3.14;` |  |  |
-| Date Type | The kind of value a variable holds, like numbers or text. | `int`, `String`, `bool` |  |  |
-|  String     | A sequence of characters used to represent words or text. | `"Hello World"` |  |  |
+| Variable | A named container used to store a value that may change. | `var x = 5;` | score | main.dart title: 'TSA Portfolio', |
+| Constant | A fixed value that cannot change once set. | `const PI = 3.14;` |  | main.dart  const MyPortfolioApp({super.key}); |
+| Date Type | The kind of value a variable holds, like numbers or text. | `int`, `String`, `bool` |  | main.dart, bool, debugShowCheckedModeBanner: false, |
+|  String     | A sequence of characters used to represent words or text. | `"Hello World"` |  | main.dart, 'Hey there 👋\nHey there 👋, welcome to my Flutter demo!', |
 |   interger   | Whole number values. | `int age = 16;` |  |  |
 |    double    | Number values with decimals. | `double age = 16.2;` |  |  |
 |     boolean   | A value that can be true or false. | `bool isLoggedIn = false;` |  |  |
